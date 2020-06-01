@@ -1,12 +1,40 @@
+/* Shareware Font by JOEBOB graphics, For personal use only
+   https://www.fontspace.com/etchasketch-font-f8213*/
+@font-face {
+    font-family: 'etchasketch';
+    src: url('../Font/etchasketch-122z-webfont.woff2') format('woff2'),
+         url('../Font/etchasketch-122z-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    background-color: #fffef2;
+}
+
 #bezel {
-    height: 70vh;
+    height: 80vh;
     width: 70vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: red;
-    border-radius: 5vw;
+    border-radius: 5vh;
+}
+
+#title {
+    font-family: 'etchasketch';
+    font-size: 6vh;
+    font-weight: bolder;
+    color: 	#DAA520;
+
+    position:absolute;
+    display:flex;
+    top: 5%;
+    width: 100%;   /* Needed to expand width to size of bezel */
+    justify-content: center;
 }
 
 #gridSpace{
@@ -18,33 +46,122 @@
     left: 50%;
     transform: translate(-50%, -55%);
     display: grid;
-    /* grid-template-rows: repeat(16, 1fr); */
 }
 
 .gridRow {
     display: grid;
-    /* grid-template-columns: repeat(16,1fr); */
 }
 
 .gridSquare{
-    /* display: block; */
-    /* display: inline-block;
-    height:32px;
-    width: 32px;*/
     border: 0.5px solid lightgray;
     background-color: white;
+    /* Below to prevent element dragging during mouse drawing events */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
-#dialLeft, #dialRight{
+#dials {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 2fr 1fr;
     position: absolute;
-    width: 9vh;
-    height: 9vh;
+    bottom: 4vh;
+    font-size: 1.5vh;
+    color: grey;
+    font-weight: bolder;
+}
+
+.dialLeft, .dialRight{
+    position:relative;
+    width: 10vh;
+    height: 10vh;
     border-radius: 50%;
     background-color: white;
-    bottom: 2.5vh;
-    right:2.5vh
+    border: 3px solid grey;
+    box-shadow: 0 0 1rem black;
+    margin: auto;
+
 }
 
-#dialLeft {
-    left:2.5vh
+.dialLeft p, .dialRight p{
+    text-align:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+
+}
+
+#modeText {
+    white-space: pre;
+}
+
+#colorModes {
+    text-align:center;
+    margin: auto;
+    background-color: white;
+    padding: 2vh 1.5vh 2vh 1.5vh;
+    border-radius: 15%;
+    border: 3px solid grey;
+    box-shadow: 0 0 1rem black;
+}
+
+#colorModes p{
+    font-size: 2vh;
+    color: 	#DAA520;
+    font-weight: bolder;
+}
+
+footer {
+    width: 100%;
+    padding: 1.5vh 0 1.5vh 0;
+    margin: 0;
+    background-color: #DAA520;
+    text-align: center;
+    position:absolute;
+    bottom:0px;
+    font-size: 1.5vh;
+}
+
+@media screen and (max-width:760px){
+    #bezel {
+        height: 80vw;
+        width: 70vw;
+        border-radius: 5vw;
+    }
+    
+    #title {
+        font-size: 6vw;
+    }
+    
+    #gridSpace{
+        height: 50vw;
+        width: 50vw;
+    }
+
+    #dials {
+        bottom: 4vw;
+        font-size: 1.5vw;
+    }
+    .dialLeft, .dialRight{
+        width: 10vw;
+        height: 10vw;
+    }
+    
+
+    #colorModes {
+        padding: 2vw 1.5vw 2vw 1.5vw;
+    }
+    
+    #colorModes p{
+        font-size: 2vw;
+    }
+    
+    footer {
+        padding: 1.5vw 0 1.5vw 0;
+        font-size: 1.5vw;
+    }
 }

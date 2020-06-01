@@ -5,27 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Style/reset.css">
     <link rel="stylesheet" href="./Style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
 </head>
 
 <body>
-    <div id='buttons'>
-        <div id='colorModes'>
-            <button id='classic'>Classic</button>
-            <button id='random'>Random</button>
-        </div>
-        <button id='clear'>Clear Screen</button>
-
-    </div>
+    <p style='text-align:center; padding-top:5vh;'>Touch Screen Compatible!</p>
     <div id="bezel">
-        <div id="gridSpace"></div>
+        <div id='title'>Etch-A-Sketch</div>
+        <div id='gridSpace'></div>
         <div id='dials'>
-            <div id="dialLeft"></div>
-            <div id="dialRight"></div>
-        </div>    
+            <div id='clear' class='dialLeft'>
+                <p>Clear<br>Screen</p>
+            </div>
+            <div id='colorModes'>
+                <p>Color Mode</p>
+                <br>
+                <button id='colorMode'>Classic</button>
+            </div>
+            <div id='mode' class="dialRight">
+                <p id='modeText'>Mode:<br><br>Hover</p>
+            </div>
+        </div>   
+        
+
+
     </div>
 
-
+    <footer>
+        <p>Made by <a href="https://github.com/jincrypt" target="_blank">Angus Leung</a></p>
+    </footer>
 </body>
 <script src="./Scripts/script.js"></script>
 </html>
