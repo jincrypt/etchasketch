@@ -92,7 +92,6 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -55%);
-
 }
 
 #modeText {
@@ -143,7 +142,7 @@ footer {
     }
 
     #dials {
-        bottom: 4vw;
+        bottom: 2vw;
         font-size: 1.5vw;
     }
     .dialLeft, .dialRight{
@@ -163,5 +162,15 @@ footer {
     footer {
         padding: 1.5vw 0 1.5vw 0;
         font-size: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #colorModes {
+        padding: 0.5vh 1.5vh 0.5vh 1.5vh;
+    }
+
+    #dials {
+        bottom: 1vh;
     }
 }
