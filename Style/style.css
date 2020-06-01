@@ -1,0 +1,50 @@
+#bezel {
+    height: 70vh;
+    width: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    border-radius: 5vw;
+}
+
+#gridSpace{
+    height: 50vh;
+    width: 50vh;
+    border: 3px solid black;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    display: grid;
+    /* grid-template-rows: repeat(16, 1fr); */
+}
+
+.gridRow {
+    display: grid;
+    /* grid-template-columns: repeat(16,1fr); */
+}
+
+.gridSquare{
+    /* display: block; */
+    /* display: inline-block;
+    height:32px;
+    width: 32px;*/
+    border: 0.5px solid lightgray;
+    background-color: white;
+}
+
+#dialLeft, #dialRight{
+    position: absolute;
+    width: 9vh;
+    height: 9vh;
+    border-radius: 50%;
+    background-color: white;
+    bottom: 2.5vh;
+    right:2.5vh
+}
+
+#dialLeft {
+    left:2.5vh
+}
