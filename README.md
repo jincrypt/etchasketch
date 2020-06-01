@@ -6,6 +6,6 @@
 - Once entered the new grid should be generated in the same total space as before
 - (Optional): Instead of just changing the color of your grid from black to white (for example) have each pass through it with the mouse change to a completely random RGB value. Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 
-
-- (Personal Goals): Make this touchscreen compatible (touch and drag)     [Done!]
-- (Personal Goals): Make page responsible (looks OK in all screen sizes)  [Done!]
+- (Personal Goals): Add option to change drawing mode from 'hover' to 'mouse click-and-drag'    [Done!]
+- (Personal Goals): Make this touchscreen compatible (touch and drag)                           [Done!]
+- (Personal Goals): Make page responsible (looks OK in all screen sizes)                        [Done!]
