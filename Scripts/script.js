@@ -136,7 +136,7 @@ function gridColor(gridSquare) {
     if (colorMode === 'default') {
             gridSquare.style.backgroundColor = 'grey';
     } else if (colorMode === 'random') {
-        if (!currentColor) {
+        if (!currentColor || currentColor === 'grey') {
             gridSquare.style.backgroundColor = randomRGB();
         } else {
             gridSquare.style.backgroundColor = modifyRGB(gridSquare);
@@ -175,7 +175,7 @@ function clearScreen() {
     });
 
     do {
-        gridSize = prompt('How many squares per side for the new grid?\n\nChoose between 1 to 100');
+        gridSize = prompt('How many squares per side for the new grid?\n\nChoose between 1 to 100', 16);
         if (gridSize === null) {
             break;
         }
