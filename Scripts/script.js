@@ -136,7 +136,7 @@ function gridColor(gridSquare) {
     if (colorMode === 'default') {
             gridSquare.style.backgroundColor = 'grey';
     } else if (colorMode === 'random') {
-        if (!currentColor) {
+        if (!currentColor || currentColor === 'grey') {
             gridSquare.style.backgroundColor = randomRGB();
         } else {
             gridSquare.style.backgroundColor = modifyRGB(gridSquare);
