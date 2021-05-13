@@ -1,20 +1,22 @@
 let gameMode = 'mouseover'; /*click*/
 let colorMode = 'default'; /*random*/
+let gridSize = 16;
 
 const body = document.querySelector('body');
 
-function createGrid() {
+function createGrid(gridSize) {
     const gridContainer = document.createElement('div');
     gridContainer.classList.add('gridContainer');
+    gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < gridSize; i++) {
         let cellRow = document.createElement('div');
         cellRow.classList.add('cellRow');
-        for (let j = 0; j < 16; j++) {
+        cellRow.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+        for (let j = 0; j < gridSize; j++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.addEventListener(gameMode, (e) => e.target.style.backgroundColor = changeColor());
-
             cellRow.append(cell);
         }
         gridContainer.append(cellRow);
@@ -23,12 +25,17 @@ function createGrid() {
     body.append(gridContainer)
 }
 
-createGrid();
+createGrid(gridSize);
 
 const clearButton = document.createElement('button');
 clearButton.textContent = "clear";
 clearButton.addEventListener('click', (e) => {
-    document.querySelectorAll('.cell').forEach(item => item.style.backgroundColor = "white")
+    document.querySelector('.gridContainer').remove();
+    gridSize = -1;
+    while (gridSize < 1 || gridSize > 100) {
+        gridSize = prompt('Select a grid size between 1 and 100', 16);
+    }
+    createGrid(gridSize);
 });
 
 body.append(clearButton);
