@@ -4,6 +4,20 @@ let gridSize = 16;
 
 const body = document.querySelector('body');
 
+function changeColor(cell) {
+    let currentColor = cell.style.backgroundColor;
+    if (colorMode === 'default') {
+        return 'grey';
+    } else if (colorMode === 'random') {
+        if (!currentColor || currentColor === 'grey') {
+            return `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`
+        } else {
+            let currentRGB = getComputedStyle(cell).backgroundColor.replace(/\D/g,' ').trim().split('  ');
+            return `rgb(${currentRGB[0] * 0.9}, ${currentRGB[1] * 0.9}, ${currentRGB[2] * 0.9})`;
+        }
+    }
+}
+
 function createGrid(gridSize) {
     const gridContainer = document.createElement('div');
     gridContainer.classList.add('gridContainer');
@@ -16,7 +30,9 @@ function createGrid(gridSize) {
         for (let j = 0; j < gridSize; j++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.addEventListener(gameMode, (e) => e.target.style.backgroundColor = changeColor());
+            cell.addEventListener(gameMode, (e) => {
+                e.target.style.backgroundColor = changeColor(e.target);
+            });
             cellRow.append(cell);
         }
         gridContainer.append(cellRow);
@@ -28,7 +44,7 @@ function createGrid(gridSize) {
 createGrid(gridSize);
 
 const clearButton = document.createElement('button');
-clearButton.textContent = "clear";
+clearButton.textContent = "Clear";
 clearButton.addEventListener('click', (e) => {
     document.querySelector('.gridContainer').remove();
     gridSize = -1;
@@ -40,14 +56,17 @@ clearButton.addEventListener('click', (e) => {
 
 body.append(clearButton);
 
-function randomColor() {
-    return `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`
-}
-
-function changeColor() {
-    if (colorMode === 'default') {
-        return 'grey';
-    } else if (colorMode === 'random') {
-        return randomColor();
+const colorModeButton = document.createElement('button');
+colorModeButton.textContent = 'Default';
+colorModeButton.addEventListener('click', (e) => {
+    let currentMode = e.target.textContent.toLowerCase();
+    if (currentMode === 'default') {
+        colorModeButton.textContent = 'Random';
+        colorMode = 'random';
+    } else {
+        colorModeButton.textContent = 'Default';
+        colorMode = 'default';
     }
-}
+});
+
+body.append(colorModeButton);
