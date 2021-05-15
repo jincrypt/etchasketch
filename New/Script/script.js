@@ -33,6 +33,7 @@ function createGrid(gridSize) {
             cell.addEventListener(gameMode, (e) => {
                 e.target.style.backgroundColor = changeColor(e.target);
             });
+            cell.addEventListener('touchmove', touch);
             cellRow.append(cell);
         }
         gridContainer.append(cellRow);
@@ -70,3 +71,19 @@ colorModeButton.addEventListener('click', (e) => {
 });
 
 body.append(colorModeButton);
+
+
+// Touch function https://gist.github.com/VehpuS/6fd5dca2ea8cd0eb0471
+function touch(e) {
+    // Prevents emulated mouse events
+    e.preventDefault();
+
+    // changedTouches will always provide the first target. But it will also provide the changing cursor values. Can use those values to determine the new elements
+    let touches = e.changedTouches[0];
+    let touchedCell = document.elementFromPoint(touches.clientX, touches.clientY);
+    try {
+        if (touchedCell.className === 'cell') {
+            touchedCell.style.backgroundColor = changeColor(touchedCell);              
+        }
+    } catch(err) {}
+}
