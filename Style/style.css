@@ -2,8 +2,8 @@
    https://www.fontspace.com/etchasketch-font-f8213*/
 @font-face {
     font-family: 'etchasketch';
-    src: url('../Font/etchasketch-122z-webfont.woff2') format('woff2'),
-         url('../Font/etchasketch-122z-webfont.woff') format('woff');
+    src: url('../font/etchasketch-122z-webfont.woff2') format('woff2'),
+         url('../font/etchasketch-122z-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
