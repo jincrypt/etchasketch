@@ -1,4 +1,4 @@
-# Etch-A-Sketch Assignment [The Odin Project]
+# Etch-A-Sketch Assignment [The Odin Project - Updated 2021]
 
 - Create a webpage with a 16x16 grid of square divs (using Javascript)
 - Set up a “hover” effect so that the grid divs change color when your mouse passes over them
@@ -8,4 +8,4 @@
 
 - (Personal Goals): Add option to change drawing mode from 'hover' to 'mouse click-and-drag'    [Done!]
 - (Personal Goals): Make this touchscreen compatible (touch and drag)                           [Done!]
-- (Personal Goals): Make page responsible (looks OK in all screen sizes)                        [Done!]
+- (Personal Goals): Make page responsive (looks OK in all screen sizes)                         [Done!]

@@ -51,9 +51,6 @@ buttonColor.addEventListener('click', (e) => {
         buttonColor.textContent = 'Classic';
     }
 });
-// document.querySelector('#random').addEventListener('click', (e) => {
-//     colorMode = 'random';
-// })
 
 
 function createGrid(gridSize) {
@@ -77,18 +74,18 @@ function createGrid(gridSize) {
             gridSquare.className = 'gridSquare';
             gridSquare.addEventListener('mouseover', (e) => {
                 if (drawingMode === 'hover') {
-                    gridColor(gridSquare)
+                    gridColor(gridSquare);
                 }
             });
             gridSquare.addEventListener('mousedown', (e) => {
                 if (drawingMode === 'click') {
-                    gridColor(gridSquare)
+                    gridColor(gridSquare);
                     mouseDrawing = true;
                 }
             });            
             gridSquare.addEventListener('mousemove', (e) => {
                 if (mouseDrawing === true && drawingMode === 'click') {
-                    gridColor(gridSquare)
+                    gridColor(gridSquare);
                 }
             });
             gridSquare.addEventListener('mouseup', (e) => {
@@ -114,10 +111,10 @@ function touch(e) {
     // Prevents additional mouse-down (prevents scrolling)
     e.preventDefault();
 
-    // Variable for location of finger
+    // Variable for location of finger !! target only shows initial target. Not subsequent after fingers move.
     let touches = e.changedTouches[0]
 
-    // Returns element at finger position (x, y)
+    // Returns element at finger position (x, y).
     gridSquare = document.elementFromPoint(touches.clientX, touches.clientY);
     
     // Added if statement to prevent changing colors of random elements
@@ -152,17 +149,7 @@ function randomRGB() {
 // Function for reading and increasing current rgb by 10%
 function modifyRGB(gridSquare) {
     let cellRGB = getComputedStyle(gridSquare).backgroundColor.replace(/\D/g,' ').trim().split('  ');
-    
-    r = cellRGB[0] * 0.9;
-    if (r > 255) {r = 255;}
-    
-    g = cellRGB[1] * 0.9;
-    if (g > 255) {g = 255;}
-   
-    b = cellRGB[2] * 0.9;
-    if (b > 255) {b = 255;}
-    
-    return `rgb(${r}, ${g}, ${b})`;
+    return `rgb(${cellRGB[0] * 0.9}, ${cellRGB[1] * 0.9}, ${cellRGB[2] * 0.9})`;
 }
 
 // Function for clear button.
@@ -170,7 +157,7 @@ function clearScreen() {
     let screen = document.querySelectorAll('.gridSquare');
     screen.forEach(e => {
         if (e.style.backgroundColor) {
-            e.style.backgroundColor = 'white';
+            e.style.removeProperty('background-color');
         }
     });
 
