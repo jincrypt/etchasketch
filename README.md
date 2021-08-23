@@ -1,5 +1,8 @@
 # Etch-A-Sketch Assignment [The Odin Project - Updated 2021]
 
+[Live Preview](https://jincrypt.github.io/etchasketch/)
+
+## Tasks:
 - Create a webpage with a 16x16 grid of square divs (using Javascript)
 - Set up a “hover” effect so that the grid divs change color when your mouse passes over them
 - Add a button which will clear the current grid and send the user a popup asking for new grid dimensions
