@@ -1,6 +1,6 @@
 # Etch-A-Sketch Assignment [The Odin Project - Updated 2021]
 
-[Live Preview](https://jincrypt.github.io/etchasketch/)
+[Live Preview](https://mkaleung.github.io/etchasketch/)
 
 ## Tasks:
 - Create a webpage with a 16x16 grid of square divs (using Javascript)
